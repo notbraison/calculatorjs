@@ -6,56 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="calculator.js"></script>
-    <link rel="stylesheet" href="calculator.css">
+    <script src="C:\Users\Lenovo\Desktop\codestief\javascript\webApplications\calculator\assets\scripts\calculator.js"></script>
+    <link rel="stylesheet" href="C:\Users\Lenovo\Desktop\codestief\javascript\webApplications\calculator\assets\styles\calculator.css">
 
 </head>
 
 <body>
     <h1>Calculator</h1>
-
-       <form id="form" name="numForm" method="POST" action="">
+       
         Enter 2 numbers to be calculated and select operation <br><br>
         <label for="num1">Number 1</label>
-        <input id="num1" type="number" value="" name="num1"><br><br>
+        <input id="num1" type="text"><br><br>
         
-        <label for="num2">Number 2</label>
-        <input id="num2" type="number" name="num2"> <br><br>
-               
-        <button type="button" onclick="getNum()" id="yesButton" class="yesButton">yes</button><br><br>
-
-        <script>
-let ab,bb,x,y;
-function getNum(){//get user variables to be used in calculation.
-let num1=document.getElementById("num1").value; //input user values into variables
-let num2=document.getElementById('num2').value;
-ab = parseFloat(num1);
-bb = parseFloat(num2);
-return[ab,bb]; //store result of function in an array
-};
-
-let arr=getNum(); //use variable to access function that returns an array of 2 values
-x=arr[0]; //initialise values to be used to variables
-y=arr[1];
-console.log(x,y);//check if truly intialised
-        </script>
-
-        <div class="operatorButtons">
-        <button type="button" ,id="add">Add</button>
-        <button type="button" onclick="generatenum()",id="subtract">Subtract</button>
-        <button type="button" onclick="generatenum()",id="multiply">Multiply</button>
-        <button type="button" onclick="generatenum()",id="divide">Divide</button>
-       </div>
-
-       <button type="reset">RESET</button>
+        <label for="operators">Operator</label>
+        <select name="operators" id="operators">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="X">X</option>
+            <option value="/">/</option>
+        </select>
 
         <br><br>
 
-       </form> 
+        <label for="num2">Number 2</label>
+        <input id="num2" type="text" > <br><br><br>
 
-    <p id='result' class="result"><!--Where the result of calculation is output-->       
-
-    </p>
+        <label for="result">Result</label>
+        <button type="button" onclick="calc();"> = </button>
+        <input type="text" id="result">
+        <br><br>   
     
 </body>
 </html>

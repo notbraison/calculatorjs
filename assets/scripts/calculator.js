@@ -7,46 +7,21 @@
 % modulus
 
 */
+function calc(){//function that is called on click of "=" button
+    let n1=parseFloat(document.getElementById('num1').value);//get value of num1 entered at 1st input box
+    let n2=parseFloat(document.getElementById('num2').value);
+    let operator=document.getElementById('operators').value;//since operator is a selector we will be differentiating by options
 
-function generatenum(){//selects which operation to carry out based on id of button
-
-    let element=document.getElementById('add');//var is intialised to element that has id add
-    let elementId = element ? element.id : '';//check id of said element and assign id to var "elementID"
-     if (elementId === 'add') {//compare the two 
-       res = addition(ab, bb);//if equal meaning button that has been clicked is ass
-       document.getElementById('result').innerHTML = res;
-       console.log(res);
-     } else {
-       element = document.getElementById('subtract');
-       elementId = element ? element.id : '';
-     
-       if (elementId === 'subtract') {
-         res = subtraction(ab, bb);
-         document.getElementById('result').innerHTML = res;
-         console.log(res);
-       } else {
-         element = document.getElementById('multiply');
-         elementId = element ? element.id : '';
-     
-         if (elementId === 'multiply') {
-           res = multiplication(ab, bb);
-           document.getElementById('result').innerHTML = res;
-           console.log(res);
-         } else {
-           element = document.getElementById('divide');
-           elementId = element ? element.id : '';
-     
-           if (elementId === 'divide') {
-             res = division(ab, bb);
-             document.getElementById('result').innerHTML = res;
-             console.log(res);
-           }
-         }
-       }
-     }
-     
+    if(operator==='+'){//if id of variable operator is + we call addition function
+        document.getElementById('result').value=addition(n1,n2);
+    }else if(operator==='-'){//else if all the way
+        document.getElementById('result').value = subtraction(n1,n2);
+    }else if(operator==='X'){
+        document.getElementById('result').value = multiplication(n1,n2);
+    }else if(operator ==='/'){
+        document.getElementById('result').value = division(n1,n2);
+    };//function finito
 };
-
 
 
 function multiplication(x,y){
@@ -108,7 +83,7 @@ function checkEven(x){
         console.log(`${x} is even`);
     }else{
         console.log(`${x} is not even`);
-    }
+    };
     };
 
 function checkSize(x,y){
@@ -118,7 +93,7 @@ function checkSize(x,y){
             console.log(`${x} is greater than ${y}`);
         }else if(x===y){
             console.log(`${x} is equal to ${y}`);
-        }
+        };
     };
 
 //now to use these functions
