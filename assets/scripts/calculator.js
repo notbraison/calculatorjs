@@ -7,32 +7,29 @@
 % modulus
 
 */
-let a,b
+let a,b;
+
 function calc(){//function that is called on click of "=" button
     let n1=parseFloat(document.getElementById('num1').value);//get value of num1 entered at 1st input box
     let n2=parseFloat(document.getElementById('num2').value);
     let operator=document.getElementById('operators').value;//since operator is a selector we will be differentiating by options
 
-    a,b=n1,n2;
+    a=n1;//intialized here for purpose of use in another function
+    b=n2;// basically i want to make these variable values global.
 
     if(operator==='+'){//if id of variable operator is + we call addition function
-        document.getElementById('result').value=addition(n1,n2);
+        document.getElementById('result').value=addition(a,b);
     }else if(operator==='-'){//else if all the way
-        document.getElementById('result').value = subtraction(n1,n2);
+        document.getElementById('result').value = subtraction(a,b);
     }else if(operator==='X'){
-        document.getElementById('result').value = multiplication(n1,n2);
+        document.getElementById('result').value = multiplication(a,b);
     }else if(operator ==='/'){
-        document.getElementById('result').value = division(n1,n2);
+        document.getElementById('result').value = division(a,b);
     };//function finito
 };
+
 function showMore(){// called upon click of Show More button
-let n1,n2=a,b;
-document.getElementById('tresult').value = checkDivisible(n1,n2);//check divisibility
-document.getElementById('tresult').value = checkEven(n1);
-document.getElementById('tresult').value = checkEven(n2);
-document.getElementById('tresult').value = checkOdd(n1);
-document.getElementById('tresult').value = checkOdd(n2);
-document.getElementById('tresult').value = checkSize(n1,n2);
+document.getElementById('tresult').innerHTML = checkDivisible(a,b)+checkEven(a)+checkEven(b)+checkOdd(a)+checkOdd(b)+checkSize(a,b);
 };
 
 
@@ -74,55 +71,45 @@ function modulus(x,y){
 function checkDivisible(x,y){
     let a=modulus(x,y);//use function to get modulus
     if(a==0){//compare result to 0, only if it is 0 is it divisible
-       console.log(`${x} is divisible by ${y}`);
-       return(`${x} is divisible by ${y}`);
+       //console.log(`${x} is divisible by ${y}`);
+       return(`${x} is divisible by ${y} <br>`);
     }else{//if it is not 0, y is not a factor of x
-        console.log(`${x} is not divisible by ${y}`)
-        return(`${x} is not divisible by ${y}`);
+        //console.log(`${x} is not divisible by ${y}`)
+        return(`${x} is not divisible by ${y} <br>`);
     }
 };
 
 function checkOdd(x){
 let a=modulus(x,2)
 if(a===0){
-    console.log(`${x} is not odd`);
-    return(`${x} is not odd`);
+    //console.log(`${x} is not odd`);
+    return(`${x} is not odd <br>`);
 }else{
-    console.log(`${x} is odd`);
-    return(`${x} is odd`);
+    //console.log(`${x} is odd`);
+    return(`${x} is odd <br>`);
 }
 };
 
 function checkEven(x){
     let a=modulus(x,2);
     if(a===0){
-        console.log(`${x} is even`);
-        return(`${x} is even`);
+        //console.log(`${x} is even`);
+        return(`${x} is even <br>`);
     }else{
-        console.log(`${x} is not even`);
-        return(`${x} is not even`);
+        //console.log(`${x} is not even`);
+        return(`${x} is not even <br>`);
     };
     };
 
 function checkSize(x,y){
         if(x<y){
-            console.log(`${x} is less than ${y}`);
-            return(`${x} is less than ${y}`);
+            //console.log(`${x} is less than ${y}`);
+            return(`${x} is less than ${y} <br>`);
         }else if(x>y){
-            console.log(`${x} is greater than ${y}`);
-            return(`${x} is greater than ${y}`);
+            //console.log(`${x} is greater than ${y}`);
+            return(`${x} is greater than ${y} <br>`);
         }else if(x===y){
-            console.log(`${x} is equal to ${y}`);
-            return(`${x} is equal to ${y}`);
+            //console.log(`${x} is equal to ${y}`);
+            return(`${x} is equal to ${y} <br>`);
         };
     };
-
-//now to use these functions
-
-/* let product=multiplication(12,12);
-console.log(product);
-let product1=checkDivisible(12,5);
-console.log(product1);
-checkEven(4)
-checkOdd(5)
-checkSize(2,3) */
