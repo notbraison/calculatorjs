@@ -7,10 +7,13 @@
 % modulus
 
 */
+let a,b
 function calc(){//function that is called on click of "=" button
     let n1=parseFloat(document.getElementById('num1').value);//get value of num1 entered at 1st input box
     let n2=parseFloat(document.getElementById('num2').value);
     let operator=document.getElementById('operators').value;//since operator is a selector we will be differentiating by options
+
+    a,b=n1,n2;
 
     if(operator==='+'){//if id of variable operator is + we call addition function
         document.getElementById('result').value=addition(n1,n2);
@@ -21,6 +24,15 @@ function calc(){//function that is called on click of "=" button
     }else if(operator ==='/'){
         document.getElementById('result').value = division(n1,n2);
     };//function finito
+};
+function showMore(){// called upon click of Show More button
+let n1,n2=a,b;
+document.getElementById('tresult').value = checkDivisible(n1,n2);//check divisibility
+document.getElementById('tresult').value = checkEven(n1);
+document.getElementById('tresult').value = checkEven(n2);
+document.getElementById('tresult').value = checkOdd(n1);
+document.getElementById('tresult').value = checkOdd(n2);
+document.getElementById('tresult').value = checkSize(n1,n2);
 };
 
 
@@ -62,18 +74,22 @@ function modulus(x,y){
 function checkDivisible(x,y){
     let a=modulus(x,y);//use function to get modulus
     if(a==0){//compare result to 0, only if it is 0 is it divisible
-       console.log(`${x} is divisible by ${y}`)
+       console.log(`${x} is divisible by ${y}`);
+       return(`${x} is divisible by ${y}`);
     }else{//if it is not 0, y is not a factor of x
         console.log(`${x} is not divisible by ${y}`)
+        return(`${x} is not divisible by ${y}`);
     }
 };
 
 function checkOdd(x){
 let a=modulus(x,2)
 if(a===0){
-    console.log(`${x} is not odd`)
+    console.log(`${x} is not odd`);
+    return(`${x} is not odd`);
 }else{
-    console.log(`${x} is odd`)
+    console.log(`${x} is odd`);
+    return(`${x} is odd`);
 }
 };
 
@@ -81,18 +97,23 @@ function checkEven(x){
     let a=modulus(x,2);
     if(a===0){
         console.log(`${x} is even`);
+        return(`${x} is even`);
     }else{
         console.log(`${x} is not even`);
+        return(`${x} is not even`);
     };
     };
 
 function checkSize(x,y){
         if(x<y){
             console.log(`${x} is less than ${y}`);
+            return(`${x} is less than ${y}`);
         }else if(x>y){
             console.log(`${x} is greater than ${y}`);
+            return(`${x} is greater than ${y}`);
         }else if(x===y){
             console.log(`${x} is equal to ${y}`);
+            return(`${x} is equal to ${y}`);
         };
     };
 
